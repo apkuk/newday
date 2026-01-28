@@ -14,7 +14,8 @@ import {
   InterviewSuccessPage,
   QualificationsPage,
   ResourcesPage,
-  DisclaimerPage
+  DisclaimerPage,
+  LearnEnglishPage
 } from '@/pages';
 import type { PageType, Job, Application, Filters, SupportedLanguage } from '@/types';
 
@@ -140,6 +141,8 @@ function AppContent() {
         );
       case "resources":
         return <ResourcesPage />;
+      case "learnEnglish":
+        return <LearnEnglishPage />;
       default:
         return (
           <HomePage

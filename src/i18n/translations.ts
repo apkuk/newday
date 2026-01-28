@@ -8,6 +8,7 @@ export const translations = {
       qualifications: 'Qualifications',
       myApplications: 'My Applications',
       resources: 'Resources',
+      learnEnglish: 'Learn English!',
     },
 
     // Home page
@@ -218,6 +219,93 @@ export const translations = {
       greeting: "Hello! I'm your UK Job Pathway assistant. I can help you with:\n\n- Understanding UK job applications\n- CV and cover letter tips\n- Interview preparation\n- Right to work questions\n- UK workplace culture\n\nWhat would you like to know?",
     },
 
+    // Learn English
+    learnEnglish: {
+      badge: 'Online English Tutoring',
+      title1: 'Master English',
+      title2: 'Unlock Your Future',
+      subtitle: 'Personalised online English lessons with native speakers. Build confidence for work, life, and everything in between.',
+      startLearning: 'Start Learning Free',
+      bookTrial: 'Book a Free Trial',
+      studentsWorldwide: 'Students Worldwide',
+      nativeTutors: 'Native Tutors',
+      lessonsCompleted: 'Lessons Completed',
+      satisfaction: 'Satisfaction Rate',
+      whyChoose: 'Why Choose SpeakEasy?',
+      features: {
+        personalised: {
+          title: 'Personalised Learning',
+          desc: 'Lessons tailored to your goals, whether for work, travel, or daily life',
+        },
+        flexible: {
+          title: 'Flexible Schedule',
+          desc: 'Learn anytime, anywhere. Book lessons that fit your busy life',
+        },
+        native: {
+          title: 'Native Speakers',
+          desc: 'Practice with qualified tutors from the UK, US, and Australia',
+        },
+        progress: {
+          title: 'Track Progress',
+          desc: 'See your improvement with regular assessments and feedback',
+        },
+      },
+      courses: {
+        title: 'Popular Courses',
+        general: {
+          title: 'General English',
+          desc: 'Build a strong foundation in reading, writing, speaking, and listening',
+          level: 'All Levels',
+        },
+        business: {
+          title: 'Business English',
+          desc: 'Professional communication for meetings, emails, and presentations',
+          level: 'Intermediate+',
+        },
+        ielts: {
+          title: 'IELTS Preparation',
+          desc: 'Comprehensive preparation for all four IELTS modules',
+          level: 'Intermediate+',
+        },
+        conversation: {
+          title: 'Conversation Practice',
+          desc: 'Build fluency and confidence through guided discussions',
+          level: 'All Levels',
+        },
+      },
+      pricing: {
+        title: 'Simple, Transparent Pricing',
+        subtitle: 'No hidden fees. Cancel anytime.',
+        starter: {
+          name: 'Starter',
+          price: '29',
+          period: '/month',
+          features: ['4 lessons per month', 'Access to learning materials', 'Progress tracking', 'Email support'],
+        },
+        popular: {
+          name: 'Popular',
+          price: '79',
+          period: '/month',
+          features: ['12 lessons per month', 'Priority booking', 'Homework review', '24/7 chat support', 'Certificate on completion'],
+        },
+        intensive: {
+          name: 'Intensive',
+          price: '149',
+          period: '/month',
+          features: ['Unlimited lessons', 'Dedicated tutor', 'Custom curriculum', 'Weekly progress reports', 'Job interview prep'],
+        },
+      },
+      getStarted: 'Get Started',
+      mostPopular: 'Most Popular',
+      cta: {
+        title: 'Ready to Start Your English Journey?',
+        subtitle: 'Join thousands of learners who have transformed their English skills with SpeakEasy',
+        button: 'Start Your Free Trial',
+      },
+      perMonth: '/month',
+      lessons: 'lessons',
+    },
+
     // Common
     common: {
       at: 'at',
@@ -231,6 +319,7 @@ export const translations = {
       qualifications: 'Кваліфікації',
       myApplications: 'Мої заявки',
       resources: 'Ресурси',
+      learnEnglish: 'Вивчай англійську!',
     },
 
     // Home page
@@ -439,6 +528,93 @@ export const translations = {
       title: 'ШІ-помічник з кар\'єри',
       placeholder: 'Запитайте що завгодно...',
       greeting: "Привіт! Я ваш помічник UK Job Pathway. Я можу допомогти з:\n\n- Розумінням заявок на роботу у Великобританії\n- Порадами щодо CV та супровідних листів\n- Підготовкою до співбесіди\n- Питаннями про право на роботу\n- Робочою культурою Великобританії\n\nЩо б ви хотіли дізнатися?",
+    },
+
+    // Learn English
+    learnEnglish: {
+      badge: 'Онлайн-репетитор англійської',
+      title1: 'Опануй англійську',
+      title2: 'Відкрий своє майбутнє',
+      subtitle: 'Персоналізовані онлайн-уроки англійської з носіями мови. Набувайте впевненості для роботи, життя та всього іншого.',
+      startLearning: 'Почати безкоштовно',
+      bookTrial: 'Записатися на пробний урок',
+      studentsWorldwide: 'Студентів по всьому світу',
+      nativeTutors: 'Носіїв мови',
+      lessonsCompleted: 'Завершених уроків',
+      satisfaction: 'Рівень задоволеності',
+      whyChoose: 'Чому обирають SpeakEasy?',
+      features: {
+        personalised: {
+          title: 'Персоналізоване навчання',
+          desc: 'Уроки, адаптовані до ваших цілей: робота, подорожі чи повсякденне життя',
+        },
+        flexible: {
+          title: 'Гнучкий розклад',
+          desc: 'Навчайтеся будь-коли та будь-де. Бронюйте уроки, що підходять вашому графіку',
+        },
+        native: {
+          title: 'Носії мови',
+          desc: 'Практикуйтеся з кваліфікованими репетиторами з Великобританії, США та Австралії',
+        },
+        progress: {
+          title: 'Відстежуйте прогрес',
+          desc: 'Спостерігайте за своїм покращенням завдяки регулярним оцінкам та зворотному зв\'язку',
+        },
+      },
+      courses: {
+        title: 'Популярні курси',
+        general: {
+          title: 'Загальна англійська',
+          desc: 'Побудуйте міцну основу в читанні, письмі, говорінні та аудіюванні',
+          level: 'Усі рівні',
+        },
+        business: {
+          title: 'Бізнес-англійська',
+          desc: 'Професійна комунікація для зустрічей, листів та презентацій',
+          level: 'Середній+',
+        },
+        ielts: {
+          title: 'Підготовка до IELTS',
+          desc: 'Комплексна підготовка до всіх чотирьох модулів IELTS',
+          level: 'Середній+',
+        },
+        conversation: {
+          title: 'Розмовна практика',
+          desc: 'Розвивайте вільність та впевненість через керовані дискусії',
+          level: 'Усі рівні',
+        },
+      },
+      pricing: {
+        title: 'Прості, прозорі ціни',
+        subtitle: 'Без прихованих платежів. Скасуйте будь-коли.',
+        starter: {
+          name: 'Стартовий',
+          price: '29',
+          period: '/місяць',
+          features: ['4 уроки на місяць', 'Доступ до навчальних матеріалів', 'Відстеження прогресу', 'Підтримка електронною поштою'],
+        },
+        popular: {
+          name: 'Популярний',
+          price: '79',
+          period: '/місяць',
+          features: ['12 уроків на місяць', 'Пріоритетне бронювання', 'Перевірка домашніх завдань', 'Чат-підтримка 24/7', 'Сертифікат по завершенню'],
+        },
+        intensive: {
+          name: 'Інтенсивний',
+          price: '149',
+          period: '/місяць',
+          features: ['Необмежена кількість уроків', 'Персональний репетитор', 'Індивідуальна програма', 'Щотижневі звіти про прогрес', 'Підготовка до співбесіди'],
+        },
+      },
+      getStarted: 'Розпочати',
+      mostPopular: 'Найпопулярніший',
+      cta: {
+        title: 'Готові розпочати свою подорож в англійську?',
+        subtitle: 'Приєднуйтеся до тисяч учнів, які покращили свою англійську зі SpeakEasy',
+        button: 'Почати безкоштовний пробний період',
+      },
+      perMonth: '/місяць',
+      lessons: 'уроків',
     },
 
     // Common

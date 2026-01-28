@@ -54,6 +54,12 @@ export function NavBar({ currentPage, setCurrentPage }: NavBarProps) {
             >
               {t.nav.resources}
             </button>
+            <button
+              onClick={() => setCurrentPage("learnEnglish")}
+              className={`text-sm font-semibold px-3 py-1.5 rounded-full ${currentPage === 'learnEnglish' ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white' : 'bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 hover:from-indigo-200 hover:to-purple-200'} transition-all`}
+            >
+              {t.nav.learnEnglish}
+            </button>
 
             {/* Language Switcher */}
             <button
@@ -115,6 +121,12 @@ export function NavBar({ currentPage, setCurrentPage }: NavBarProps) {
               className="block w-full text-left px-4 py-2 text-gray-600 hover:bg-gray-50 rounded"
             >
               {t.nav.resources}
+            </button>
+            <button
+              onClick={() => { setCurrentPage("learnEnglish"); setMobileMenu(false); }}
+              className="block w-full text-left px-4 py-2 text-indigo-600 font-semibold hover:bg-indigo-50 rounded"
+            >
+              {t.nav.learnEnglish}
             </button>
           </div>
         )}
