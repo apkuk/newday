@@ -60,6 +60,12 @@ export function NavBar({ currentPage, setCurrentPage }: NavBarProps) {
             >
               {t.nav.learnEnglish}
             </button>
+            <button
+              onClick={() => setCurrentPage("sourceImmigrants")}
+              className={`text-sm font-semibold px-3 py-1.5 rounded-full ${currentPage === 'sourceImmigrants' ? 'bg-gradient-to-r from-red-600 to-orange-500 text-white' : 'bg-gradient-to-r from-red-100 to-orange-100 text-red-700 hover:from-red-200 hover:to-orange-200'} transition-all`}
+            >
+              {t.nav.sourceImmigrants}
+            </button>
 
             {/* Language Switcher */}
             <button
@@ -127,6 +133,12 @@ export function NavBar({ currentPage, setCurrentPage }: NavBarProps) {
               className="block w-full text-left px-4 py-2 text-indigo-600 font-semibold hover:bg-indigo-50 rounded"
             >
               {t.nav.learnEnglish}
+            </button>
+            <button
+              onClick={() => { setCurrentPage("sourceImmigrants"); setMobileMenu(false); }}
+              className="block w-full text-left px-4 py-2 text-red-600 font-semibold hover:bg-red-50 rounded"
+            >
+              {t.nav.sourceImmigrants}
             </button>
           </div>
         )}
