@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Bot, X, Send } from 'lucide-react';
+import { useLanguage } from '@/i18n';
 import type { ChatMessage } from '@/types';
 
 interface AIAssistantProps {
@@ -8,10 +9,12 @@ interface AIAssistantProps {
 }
 
 export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
+  const { t } = useLanguage();
+
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: "assistant",
-      content: "Hello! I'm your UK Job Pathway assistant. I can help you with:\n\n- Understanding UK job applications\n- CV and cover letter tips\n- Interview preparation\n- Right to work questions\n- UK workplace culture\n\nWhat would you like to know?"
+      content: t.ai.greeting
     }
   ]);
   const [input, setInput] = useState("");
@@ -61,7 +64,7 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 rounded-t-2xl flex justify-between items-center">
         <div className="flex items-center gap-2">
           <Bot className="w-6 h-6" />
-          <span className="font-semibold">AI Career Assistant</span>
+          <span className="font-semibold">{t.ai.title}</span>
         </div>
         <button onClick={onClose} className="hover:bg-white/20 p-1 rounded">
           <X className="w-5 h-5" />
@@ -100,7 +103,7 @@ export function AIAssistant({ isOpen, onClose }: AIAssistantProps) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask me anything..."
+            placeholder={t.ai.placeholder}
             className="flex-1 border border-gray-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <button

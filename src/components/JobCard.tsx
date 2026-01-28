@@ -1,4 +1,5 @@
 import { MapPin, Clock, Globe, Heart } from 'lucide-react';
+import { useLanguage } from '@/i18n';
 import type { Job } from '@/types';
 
 interface JobCardProps {
@@ -9,6 +10,8 @@ interface JobCardProps {
 }
 
 export function JobCard({ job, onClick, isSaved, onToggleSave }: JobCardProps) {
+  const { t } = useLanguage();
+
   return (
     <div
       onClick={onClick}
@@ -36,7 +39,7 @@ export function JobCard({ job, onClick, isSaved, onToggleSave }: JobCardProps) {
         </span>
         {job.sponsorship && (
           <span className="inline-flex items-center gap-1 text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
-            <Globe className="w-3 h-3" /> Visa Sponsor
+            <Globe className="w-3 h-3" /> {t.jobs.visaSponsor}
           </span>
         )}
       </div>

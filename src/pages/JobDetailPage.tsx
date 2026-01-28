@@ -1,4 +1,5 @@
 import { ArrowLeft, MapPin, Briefcase, Globe, Heart, CheckCircle } from 'lucide-react';
+import { useLanguage } from '@/i18n';
 import type { PageType, Job } from '@/types';
 
 interface JobDetailPageProps {
@@ -10,13 +11,15 @@ interface JobDetailPageProps {
 }
 
 export function JobDetailPage({ job, setCurrentPage, setApplicationStep, isSaved, onToggleSave }: JobDetailPageProps) {
+  const { t } = useLanguage();
+
   if (!job) return null;
 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <button onClick={() => setCurrentPage("jobs")} className="flex items-center gap-2 text-gray-600 mb-6 hover:text-gray-900">
-          <ArrowLeft className="w-4 h-4" /> Back to jobs
+          <ArrowLeft className="w-4 h-4" /> {t.jobs.backToJobs}
         </button>
 
         <div className="bg-white rounded-2xl shadow-sm p-8">
@@ -45,16 +48,16 @@ export function JobDetailPage({ job, setCurrentPage, setApplicationStep, isSaved
             </span>
             {job.sponsorship && (
               <span className="inline-flex items-center gap-2 bg-green-100 text-green-700 px-4 py-2 rounded-full">
-                <Globe className="w-4 h-4" /> Visa Sponsorship Available
+                <Globe className="w-4 h-4" /> {t.jobs.visaSponsorshipAvailable}
               </span>
             )}
           </div>
 
           <div className="prose max-w-none mb-8">
-            <h3 className="text-lg font-semibold mb-3">About this role</h3>
+            <h3 className="text-lg font-semibold mb-3">{t.jobs.aboutRole}</h3>
             <p className="text-gray-600 mb-6">{job.description}</p>
 
-            <h3 className="text-lg font-semibold mb-3">Requirements</h3>
+            <h3 className="text-lg font-semibold mb-3">{t.jobs.requirements}</h3>
             <ul className="space-y-2 mb-6">
               {job.requirements.map((req, idx) => (
                 <li key={idx} className="flex items-start gap-2 text-gray-600">
@@ -64,7 +67,7 @@ export function JobDetailPage({ job, setCurrentPage, setApplicationStep, isSaved
               ))}
             </ul>
 
-            <h3 className="text-lg font-semibold mb-3">Benefits</h3>
+            <h3 className="text-lg font-semibold mb-3">{t.jobs.benefits}</h3>
             <div className="flex flex-wrap gap-2">
               {job.benefits.map((benefit, idx) => (
                 <span key={idx} className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-sm">
@@ -79,10 +82,10 @@ export function JobDetailPage({ job, setCurrentPage, setApplicationStep, isSaved
               onClick={() => { setApplicationStep(0); setCurrentPage("apply"); }}
               className="flex-1 bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition"
             >
-              Apply Now
+              {t.jobs.applyNow}
             </button>
             <button className="px-8 py-4 border border-gray-200 rounded-xl font-semibold hover:bg-gray-50 transition">
-              Share
+              {t.jobs.share}
             </button>
           </div>
         </div>

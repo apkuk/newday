@@ -1,5 +1,6 @@
 import { Search, Sparkles, ChevronRight, Briefcase, Video, BookOpen, Languages, GraduationCap } from 'lucide-react';
 import { JobCard } from '@/components/JobCard';
+import { useLanguage } from '@/i18n';
 import { mockJobs } from '@/data';
 import type { PageType, Job } from '@/types';
 
@@ -11,33 +12,43 @@ interface HomePageProps {
 }
 
 export function HomePage({ setCurrentPage, setSelectedJob, savedJobs, onToggleSave }: HomePageProps) {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 pt-16 pb-24">
         <div className="text-center max-w-3xl mx-auto">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="/image.png"
+              alt="UK Job Pathway"
+              className="h-48 w-auto"
+            />
+          </div>
           <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Sparkles className="w-4 h-4" />
-            AI-Powered Job Search for Newcomers
+            {t.home.badge}
           </div>
           <h1 className="text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Your Journey to a<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">UK Career Starts Here</span>
+            {t.home.title1}<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">{t.home.title2}</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Find jobs, prepare for interviews, and navigate the UK job market with confidence. Built for immigrants, by people who understand the journey.
+            {t.home.subtitle}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => setCurrentPage("jobs")}
               className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-200"
             >
-              Browse Jobs
+              {t.home.browseJobs}
             </button>
             <button
               onClick={() => setCurrentPage("qualifications")}
               className="bg-emerald-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-emerald-700 transition shadow-lg shadow-emerald-200"
             >
-              Check My Qualifications
+              {t.home.checkQualifications}
             </button>
           </div>
         </div>
@@ -48,7 +59,7 @@ export function HomePage({ setCurrentPage, setSelectedJob, savedJobs, onToggleSa
               <Search className="w-5 h-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Job title, company, or keyword..."
+                placeholder={t.home.searchPlaceholder}
                 className="w-full py-3 outline-none text-gray-700"
               />
             </div>
@@ -56,17 +67,17 @@ export function HomePage({ setCurrentPage, setSelectedJob, savedJobs, onToggleSa
               onClick={() => setCurrentPage("jobs")}
               className="bg-blue-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-blue-700 transition"
             >
-              Search
+              {t.home.search}
             </button>
           </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 max-w-4xl mx-auto">
           {[
-            { number: "2,500+", label: "Active Jobs" },
-            { number: "850+", label: "Visa Sponsors" },
-            { number: "15,000+", label: "Success Stories" },
-            { number: "50+", label: "Free Resources" }
+            { number: "2,500+", label: t.home.activeJobs },
+            { number: "850+", label: t.home.visaSponsors },
+            { number: "15,000+", label: t.home.successStories },
+            { number: "50+", label: t.home.freeResources }
           ].map((stat, idx) => (
             <div key={idx} className="text-center">
               <div className="text-3xl font-bold text-gray-900">{stat.number}</div>
@@ -78,13 +89,13 @@ export function HomePage({ setCurrentPage, setSelectedJob, savedJobs, onToggleSa
 
       <div className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Everything You Need to Succeed</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">{t.home.everythingYouNeed}</h2>
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { icon: Briefcase, title: "Jobs That Welcome You", desc: "Find positions from employers who value international talent", color: "blue", page: "jobs" as const },
-              { icon: GraduationCap, title: "Qualification Check", desc: "Understand how your qualifications translate to UK standards", color: "emerald", page: "qualifications" as const },
-              { icon: Video, title: "Practice Interviews", desc: "AI-powered mock interviews tailored to UK culture", color: "purple", page: "dashboard" as const },
-              { icon: BookOpen, title: "Learn UK Norms", desc: "Guides on CVs, workplace culture, and your rights", color: "orange", page: "resources" as const }
+              { icon: Briefcase, title: t.home.features.jobs.title, desc: t.home.features.jobs.desc, color: "blue", page: "jobs" as const },
+              { icon: GraduationCap, title: t.home.features.qualifications.title, desc: t.home.features.qualifications.desc, color: "emerald", page: "qualifications" as const },
+              { icon: Video, title: t.home.features.interviews.title, desc: t.home.features.interviews.desc, color: "purple", page: "dashboard" as const },
+              { icon: BookOpen, title: t.home.features.resources.title, desc: t.home.features.resources.desc, color: "orange", page: "resources" as const }
             ].map((feature, idx) => (
               <button
                 key={idx}
@@ -119,22 +130,22 @@ export function HomePage({ setCurrentPage, setSelectedJob, savedJobs, onToggleSa
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-4">
                   <Languages className="w-6 h-6" />
-                  <span className="text-emerald-200 font-medium">Available in 4 Languages</span>
+                  <span className="text-emerald-200 font-medium">{t.home.qualBanner.languages}</span>
                 </div>
-                <h2 className="text-3xl font-bold mb-4">Not Sure If Your Qualifications Are Recognized?</h2>
+                <h2 className="text-3xl font-bold mb-4">{t.home.qualBanner.title}</h2>
                 <p className="text-emerald-100 mb-6">
-                  Our AI assistant helps you understand how your international degrees, diplomas, and professional certifications compare to UK standards. Get personalized guidance in English, French, German, or Spanish.
+                  {t.home.qualBanner.desc}
                 </p>
                 <button
                   onClick={() => setCurrentPage("qualifications")}
                   className="bg-white text-emerald-700 px-6 py-3 rounded-xl font-semibold hover:bg-emerald-50 transition inline-flex items-center gap-2"
                 >
                   <GraduationCap className="w-5 h-5" />
-                  Check My Qualifications
+                  {t.home.checkQualifications}
                 </button>
               </div>
               <div className="flex-shrink-0 grid grid-cols-2 gap-3">
-                {['English', 'Francais', 'Deutsch', 'Espanol'].map((lang, idx) => (
+                {['English', 'Українська'].map((lang, idx) => (
                   <div key={idx} className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg text-sm font-medium">
                     {lang}
                   </div>
@@ -148,9 +159,9 @@ export function HomePage({ setCurrentPage, setSelectedJob, savedJobs, onToggleSa
       <div className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold">Featured Jobs</h2>
+            <h2 className="text-3xl font-bold">{t.home.featuredJobs}</h2>
             <button onClick={() => setCurrentPage("jobs")} className="text-blue-600 font-medium flex items-center gap-1 hover:gap-2 transition-all">
-              View all <ChevronRight className="w-4 h-4" />
+              {t.home.viewAll} <ChevronRight className="w-4 h-4" />
             </button>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

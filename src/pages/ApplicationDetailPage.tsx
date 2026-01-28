@@ -1,5 +1,6 @@
 import { ArrowLeft, CheckCircle, Circle } from 'lucide-react';
 import { statusSteps } from '@/data';
+import { useLanguage } from '@/i18n';
 import type { PageType, Application } from '@/types';
 
 interface ApplicationDetailPageProps {
@@ -8,6 +9,8 @@ interface ApplicationDetailPageProps {
 }
 
 export function ApplicationDetailPage({ application, setCurrentPage }: ApplicationDetailPageProps) {
+  const { t } = useLanguage();
+
   if (!application) return null;
 
   const currentStatusIndex = statusSteps.findIndex(s => s.key === application.status);
@@ -16,7 +19,7 @@ export function ApplicationDetailPage({ application, setCurrentPage }: Applicati
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 py-8">
         <button onClick={() => setCurrentPage("dashboard")} className="flex items-center gap-2 text-gray-600 mb-6 hover:text-gray-900">
-          <ArrowLeft className="w-4 h-4" /> Back to dashboard
+          <ArrowLeft className="w-4 h-4" /> {t.dashboard.backToDashboard}
         </button>
 
         <div className="bg-white rounded-2xl p-8">
@@ -26,12 +29,12 @@ export function ApplicationDetailPage({ application, setCurrentPage }: Applicati
               <p className="text-gray-500">{application.company}</p>
             </div>
             <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full font-medium">
-              Interview Invited
+              {t.dashboard.status.interview_invited}
             </span>
           </div>
 
           <div className="mb-8">
-            <h2 className="font-semibold mb-6">Application Timeline</h2>
+            <h2 className="font-semibold mb-6">{t.dashboard.timeline}</h2>
             <div className="relative">
               {statusSteps.map((step, idx) => (
                 <div key={idx} className="flex gap-4 mb-6 last:mb-0">
@@ -60,13 +63,13 @@ export function ApplicationDetailPage({ application, setCurrentPage }: Applicati
 
           {application.status === 'interview_invited' && (
             <div className="bg-purple-50 rounded-xl p-6">
-              <h3 className="font-semibold text-purple-900 mb-2">You have been invited to interview!</h3>
-              <p className="text-purple-700 mb-4">Complete your video interview within the next 5 days.</p>
+              <h3 className="font-semibold text-purple-900 mb-2">{t.dashboard.interviewInvited}</h3>
+              <p className="text-purple-700 mb-4">{t.dashboard.completeWithin}</p>
               <button
                 onClick={() => setCurrentPage("interview")}
                 className="bg-purple-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-purple-700 transition"
               >
-                Start Interview
+                {t.dashboard.startInterview}
               </button>
             </div>
           )}

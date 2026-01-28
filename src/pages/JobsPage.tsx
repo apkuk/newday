@@ -1,4 +1,5 @@
 import { JobCard } from '@/components/JobCard';
+import { useLanguage } from '@/i18n';
 import { mockJobs } from '@/data';
 import type { PageType, Job, Filters } from '@/types';
 
@@ -12,6 +13,8 @@ interface JobsPageProps {
 }
 
 export function JobsPage({ filters, setFilters, setSelectedJob, setCurrentPage, savedJobs, onToggleSave }: JobsPageProps) {
+  const { t } = useLanguage();
+
   const filteredJobs = mockJobs.filter(job => {
     if (filters.sponsorship && !job.sponsorship) return false;
     if (filters.location && !job.location.toLowerCase().includes(filters.location.toLowerCase())) return false;
@@ -22,7 +25,7 @@ export function JobsPage({ filters, setFilters, setSelectedJob, setCurrentPage, 
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">Find Your Next Opportunity</h1>
+        <h1 className="text-3xl font-bold mb-8">{t.jobs.title}</h1>
 
         <div className="bg-white rounded-xl p-4 mb-6 flex flex-wrap gap-4 items-center">
           <div className="flex items-center gap-2">
@@ -33,14 +36,14 @@ export function JobsPage({ filters, setFilters, setSelectedJob, setCurrentPage, 
               onChange={(e) => setFilters({...filters, sponsorship: e.target.checked})}
               className="w-4 h-4 text-blue-600 rounded"
             />
-            <label htmlFor="sponsorship" className="text-sm font-medium text-gray-700">Visa Sponsorship</label>
+            <label htmlFor="sponsorship" className="text-sm font-medium text-gray-700">{t.jobs.visaSponsorship}</label>
           </div>
           <select
             value={filters.location}
             onChange={(e) => setFilters({...filters, location: e.target.value})}
             className="border rounded-lg px-3 py-2 text-sm"
           >
-            <option value="">All Locations</option>
+            <option value="">{t.jobs.allLocations}</option>
             <option value="London">London</option>
             <option value="Manchester">Manchester</option>
             <option value="Birmingham">Birmingham</option>
@@ -52,7 +55,7 @@ export function JobsPage({ filters, setFilters, setSelectedJob, setCurrentPage, 
             onChange={(e) => setFilters({...filters, industry: e.target.value})}
             className="border rounded-lg px-3 py-2 text-sm"
           >
-            <option value="">All Industries</option>
+            <option value="">{t.jobs.allIndustries}</option>
             <option value="Technology">Technology</option>
             <option value="Healthcare">Healthcare</option>
             <option value="Hospitality">Hospitality</option>
@@ -62,7 +65,7 @@ export function JobsPage({ filters, setFilters, setSelectedJob, setCurrentPage, 
           </select>
         </div>
 
-        <p className="text-gray-500 mb-4">{filteredJobs.length} jobs found</p>
+        <p className="text-gray-500 mb-4">{filteredJobs.length} {t.jobs.jobsFound}</p>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredJobs.map(job => (

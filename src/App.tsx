@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { LanguageProvider } from '@/i18n';
 import { NavBar, AIAssistant } from '@/components';
 import {
   HomePage,
@@ -19,7 +20,7 @@ import type { PageType, Job, Application, Filters, SupportedLanguage } from '@/t
 
 const DISCLAIMER_ACCEPTED_KEY = 'uk-job-pathway-disclaimer-accepted';
 
-export default function App() {
+function AppContent() {
   const [hasAcceptedDisclaimer, setHasAcceptedDisclaimer] = useState<boolean>(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem(DISCLAIMER_ACCEPTED_KEY) === 'true';
@@ -99,7 +100,6 @@ export default function App() {
       case "applicationSuccess":
         return (
           <ApplicationSuccessPage
-            job={selectedJob}
             setCurrentPage={setCurrentPage}
           />
         );
@@ -168,5 +168,13 @@ export default function App() {
 
       <AIAssistant isOpen={showAI} onClose={() => setShowAI(false)} />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

@@ -1,4 +1,5 @@
 import { mockApplications } from '@/data';
+import { useLanguage } from '@/i18n';
 import type { PageType, Application, ApplicationStatus } from '@/types';
 
 interface DashboardPageProps {
@@ -7,6 +8,8 @@ interface DashboardPageProps {
 }
 
 export function DashboardPage({ setCurrentPage, setSelectedApplication }: DashboardPageProps) {
+  const { t } = useLanguage();
+
   const getStatusColor = (status: ApplicationStatus): string => {
     const colors: Record<ApplicationStatus, string> = {
       submitted: "bg-gray-100 text-gray-700",
@@ -19,10 +22,10 @@ export function DashboardPage({ setCurrentPage, setSelectedApplication }: Dashbo
 
   const getStatusLabel = (status: ApplicationStatus): string => {
     const labels: Record<ApplicationStatus, string> = {
-      submitted: "Submitted",
-      in_review: "In Review",
-      interview_invited: "Interview Invited",
-      offer: "Offer"
+      submitted: t.dashboard.status.submitted,
+      in_review: t.dashboard.status.in_review,
+      interview_invited: t.dashboard.status.interview_invited,
+      offer: t.dashboard.status.offer
     };
     return labels[status];
   };
@@ -30,15 +33,15 @@ export function DashboardPage({ setCurrentPage, setSelectedApplication }: Dashbo
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-2">My Applications</h1>
-        <p className="text-gray-600 mb-8">Track your job applications and next steps</p>
+        <h1 className="text-3xl font-bold mb-2">{t.dashboard.title}</h1>
+        <p className="text-gray-600 mb-8">{t.dashboard.subtitle}</p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
-            { label: "Total Applied", value: mockApplications.length },
-            { label: "In Review", value: mockApplications.filter(a => a.status === 'in_review').length },
-            { label: "Interviews", value: mockApplications.filter(a => a.status === 'interview_invited').length },
-            { label: "Offers", value: mockApplications.filter(a => a.status === 'offer').length }
+            { label: t.dashboard.totalApplied, value: mockApplications.length },
+            { label: t.dashboard.inReview, value: mockApplications.filter(a => a.status === 'in_review').length },
+            { label: t.dashboard.interviews, value: mockApplications.filter(a => a.status === 'interview_invited').length },
+            { label: t.dashboard.offers, value: mockApplications.filter(a => a.status === 'offer').length }
           ].map((stat, idx) => (
             <div key={idx} className="bg-white rounded-xl p-6">
               <p className="text-3xl font-bold text-gray-900">{stat.value}</p>
@@ -49,7 +52,7 @@ export function DashboardPage({ setCurrentPage, setSelectedApplication }: Dashbo
 
         <div className="bg-white rounded-2xl overflow-hidden">
           <div className="p-6 border-b">
-            <h2 className="font-semibold">Your Applications</h2>
+            <h2 className="font-semibold">{t.dashboard.yourApplications}</h2>
           </div>
           <div className="divide-y">
             {mockApplications.map(app => (
@@ -68,15 +71,15 @@ export function DashboardPage({ setCurrentPage, setSelectedApplication }: Dashbo
                   </span>
                 </div>
                 <div className="flex gap-4 mt-4 text-sm text-gray-500">
-                  <span>Applied: {app.appliedDate}</span>
-                  <span>Updated: {app.lastUpdate}</span>
+                  <span>{t.dashboard.applied}: {app.appliedDate}</span>
+                  <span>{t.dashboard.updated}: {app.lastUpdate}</span>
                 </div>
                 {app.status === 'interview_invited' && (
                   <button
                     onClick={(e) => { e.stopPropagation(); setSelectedApplication(app); setCurrentPage("interview"); }}
                     className="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-700 transition"
                   >
-                    Start Interview
+                    {t.dashboard.startInterview}
                   </button>
                 )}
               </div>
