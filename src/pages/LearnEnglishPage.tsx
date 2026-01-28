@@ -1,4 +1,4 @@
-import { BookOpen, Calendar, Users, TrendingUp, Globe, Headphones, MessageCircle, Award, Check, Play, Star } from 'lucide-react';
+import { BookOpen, Calendar, Users, TrendingUp, Globe, Headphones, MessageCircle, Award, Check, Play, Star, Heart } from 'lucide-react';
 import { useLanguage } from '@/i18n';
 
 export function LearnEnglishPage() {
@@ -25,12 +25,6 @@ export function LearnEnglishPage() {
     { icon: MessageCircle, color: 'from-green-500 to-emerald-500', ...t.learnEnglish.courses.conversation },
   ];
 
-  const pricingPlans = [
-    { ...t.learnEnglish.pricing.starter, highlighted: false },
-    { ...t.learnEnglish.pricing.popular, highlighted: true },
-    { ...t.learnEnglish.pricing.intensive, highlighted: false },
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-purple-50">
       {/* Hero Section */}
@@ -46,10 +40,16 @@ export function LearnEnglishPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left side - Text content */}
             <div className="text-center lg:text-left">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-indigo-700 mb-8 shadow-sm border border-indigo-100">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                {t.learnEnglish.badge}
+              {/* Badges */}
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-8">
+                <div className="inline-flex items-center gap-2 bg-green-100 px-4 py-2 rounded-full text-sm font-semibold text-green-700 shadow-sm border border-green-200">
+                  <Heart className="w-4 h-4 fill-green-500 text-green-500" />
+                  {t.learnEnglish.freeForImmigrants}
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium text-indigo-700 shadow-sm border border-indigo-100">
+                  <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                  {t.learnEnglish.philanthropicBadge}
+                </div>
               </div>
 
               {/* Main heading */}
@@ -87,6 +87,10 @@ export function LearnEnglishPage() {
                 {/* Speech bubble */}
                 <div className="absolute -top-4 -right-4 bg-white rounded-2xl px-4 py-2 shadow-lg border border-indigo-100 animate-bounce">
                   <span className="text-2xl">Hello! 👋</span>
+                </div>
+                {/* Free badge on mascot */}
+                <div className="absolute -bottom-2 -left-2 bg-green-500 text-white rounded-full px-4 py-2 shadow-lg font-bold text-sm">
+                  FREE!
                 </div>
                 {/* Mascot image */}
                 <img
@@ -170,63 +174,59 @@ export function LearnEnglishPage() {
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Everything Included - Free Section */}
       <section className="py-20 bg-indigo-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.learnEnglish.pricing.title}</h2>
-            <p className="text-gray-600 text-lg">{t.learnEnglish.pricing.subtitle}</p>
+            <div className="inline-flex items-center gap-2 bg-green-100 px-6 py-3 rounded-full text-lg font-semibold text-green-700 mb-6">
+              <Heart className="w-5 h-5 fill-green-500 text-green-500" />
+              {t.learnEnglish.freeForImmigrants}
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.learnEnglish.included.title}</h2>
+            <p className="text-gray-600 text-lg">{t.learnEnglish.included.subtitle}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {pricingPlans.map((plan, idx) => (
-              <div
-                key={idx}
-                className={`relative bg-white rounded-3xl p-8 ${
-                  plan.highlighted
-                    ? 'ring-2 ring-indigo-600 shadow-2xl shadow-indigo-500/20 scale-105'
-                    : 'border border-gray-200 hover:border-indigo-200 hover:shadow-xl'
-                } transition-all duration-300`}
-              >
-                {plan.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                    {t.learnEnglish.mostPopular}
-                  </div>
-                )}
+          <div className="bg-white rounded-3xl p-10 shadow-xl border border-indigo-100 relative overflow-hidden">
+            {/* Decorative gradient */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-green-400/10 to-emerald-400/10 rounded-bl-full" />
 
-                <div className="text-center mb-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">{plan.name}</h3>
-                  <div className="flex items-baseline justify-center gap-1">
-                    <span className="text-2xl font-bold text-gray-600">£</span>
-                    <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-500">{plan.period}</span>
-                  </div>
+            <div className="relative">
+              {/* Price display - FREE */}
+              <div className="text-center mb-10">
+                <div className="inline-flex items-baseline gap-2">
+                  <span className="text-7xl font-bold bg-gradient-to-r from-green-500 to-emerald-500 bg-clip-text text-transparent">
+                    £0
+                  </span>
+                  <span className="text-2xl text-gray-500 line-through">£149</span>
                 </div>
+                <p className="text-green-600 font-semibold mt-2">Forever free for immigrants</p>
+              </div>
 
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, fidx) => (
-                    <li key={fidx} className="flex items-center gap-3">
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
-                        plan.highlighted ? 'bg-indigo-100' : 'bg-gray-100'
-                      }`}>
-                        <Check className={`w-3 h-3 ${plan.highlighted ? 'text-indigo-600' : 'text-gray-600'}`} />
-                      </div>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Features grid */}
+              <div className="grid md:grid-cols-2 gap-4 mb-10">
+                {t.learnEnglish.included.features.map((feature, idx) => (
+                  <div key={idx} className="flex items-center gap-3 p-3 bg-gray-50 rounded-xl">
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Check className="w-4 h-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700">{feature}</span>
+                  </div>
+                ))}
+              </div>
 
-                <button
-                  className={`w-full py-4 rounded-2xl font-semibold transition-all ${
-                    plan.highlighted
-                      ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/40'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
+              {/* CTA Button */}
+              <div className="text-center">
+                <button className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-12 py-4 rounded-2xl font-semibold text-lg shadow-lg shadow-green-500/30 hover:shadow-xl hover:shadow-green-500/40 transition-all hover:-translate-y-0.5">
                   {t.learnEnglish.getStarted}
                 </button>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Why Free explanation */}
+          <div className="mt-12 text-center">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">{t.learnEnglish.whyFree}</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">{t.learnEnglish.whyFreeText}</p>
           </div>
         </div>
       </section>
@@ -236,9 +236,9 @@ export function LearnEnglishPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: 'Olena K.', country: 'Ukraine', text: 'SpeakEasy helped me prepare for my job interviews in English. I got the job!' },
-              { name: 'Maria S.', country: 'Poland', text: 'The tutors are so patient and helpful. My confidence has grown so much.' },
-              { name: 'Ahmed R.', country: 'Egypt', text: 'Flexible scheduling is perfect for my busy work life. Highly recommend!' },
+              { name: 'Olena K.', country: 'Ukraine', text: 'SpeakEasy helped me prepare for my job interviews in English. I got the job! And it was completely free!' },
+              { name: 'Maria S.', country: 'Poland', text: 'The tutors are so patient and helpful. My confidence has grown so much. I can\'t believe this is free.' },
+              { name: 'Ahmed R.', country: 'Egypt', text: 'As a new immigrant, free English lessons changed my life. Thank you Cognita!' },
             ].map((testimonial, idx) => (
               <div key={idx} className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100">
                 <div className="flex gap-1 mb-4">
@@ -281,6 +281,23 @@ export function LearnEnglishPage() {
           <button className="bg-white text-indigo-600 px-10 py-4 rounded-2xl font-semibold text-lg shadow-2xl hover:shadow-3xl hover:-translate-y-1 transition-all">
             {t.learnEnglish.cta.button}
           </button>
+        </div>
+      </section>
+
+      {/* Powered by Cognita Footer */}
+      <section className="py-8 bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p className="text-gray-400 text-sm">
+            {t.learnEnglish.poweredBy}{' '}
+            <a
+              href="https://cognita.education"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white font-semibold hover:text-indigo-400 transition-colors"
+            >
+              cognita.education
+            </a>
+          </p>
         </div>
       </section>
     </div>
