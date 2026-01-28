@@ -9,7 +9,6 @@ export const translations = {
       myApplications: 'My Applications',
       resources: 'Resources',
       learnEnglish: 'Learn English!',
-      sourceImmigrants: 'Source Immigrants',
     },
 
     // Home page
@@ -303,76 +302,6 @@ export const translations = {
       lessons: 'lessons',
     },
 
-    // Source Immigrants (Satirical)
-    sourceImmigrants: {
-      badge: 'LIMITED TIME OFFER',
-      title1: 'Buy One Immigrant',
-      title2: 'Get One FREE!',
-      subtitle: 'Why settle for one hardworking, highly skilled professional when you can have TWO? Our premium immigrant sourcing service brings you the finest talent from around the globe!',
-      disclaimer: 'THIS IS SATIRE - This page is a commentary on how immigrants are often dehumanised and treated as commodities. Immigrants are people, not products.',
-      orderNow: 'Order Now*',
-      browseStock: 'Browse Our Stock',
-      asterisk: '*Not actually for sale. Humans have rights.',
-      stats: {
-        countries: 'Countries of Origin',
-        languages: 'Languages Spoken',
-        degrees: 'Advanced Degrees',
-        willingness: 'Willingness to Work',
-      },
-      features: {
-        title: 'Why Source From Us?',
-        premium: {
-          title: 'Premium Grade Humans',
-          desc: 'Only the finest specimens, pre-screened for maximum productivity and minimum complaints',
-        },
-        trained: {
-          title: 'Pre-Trained',
-          desc: 'Already speaks some English! No assembly required. Batteries (motivation) included.',
-        },
-        grateful: {
-          title: 'Extremely Grateful',
-          desc: 'Will accept below-market wages with a smile! Perfect for cost-conscious employers.',
-        },
-        quiet: {
-          title: 'Won\'t Complain',
-          desc: 'Too worried about visa status to ask for raises, sick days, or basic dignity.',
-        },
-      },
-      packages: {
-        title: 'Choose Your Package',
-        basic: {
-          name: 'Basic Immigrant',
-          price: '999',
-          features: ['1 Human Being', 'Basic English', 'Will work weekends', '90-day warranty'],
-        },
-        premium: {
-          name: 'Premium Immigrant',
-          price: '1,999',
-          features: ['1 Human + 1 FREE', 'Fluent English', 'Multiple degrees', 'Eternal gratitude'],
-          badge: 'BEST VALUE',
-        },
-        enterprise: {
-          name: 'Enterprise Bundle',
-          price: '4,999',
-          features: ['5 Humans', 'Assorted skills', 'Bulk discount', 'Free deportation insurance'],
-        },
-      },
-      testimonials: {
-        title: 'What Our Customers Say',
-        reviews: [
-          { name: 'Definitely Real CEO', text: 'I replaced my entire workforce with immigrants and my yacht is now twice as big!' },
-          { name: 'Totally Not Exploitative Ltd', text: 'Why pay minimum wage when you can pay less? 5 stars!' },
-          { name: 'Anonymous Business Owner', text: 'They work holidays, weekends, and never ask about overtime. Perfect!' },
-        ],
-      },
-      realTalk: {
-        title: 'But Seriously...',
-        message: 'This page is satire highlighting how immigrants are often dehumanised in public discourse. Real people flee war, persecution, and poverty. They have families, dreams, and dignity. They contribute billions to economies and enrich cultures. They deserve respect, not to be treated as commodities.',
-        learnMore: 'Learn About Immigration Rights',
-      },
-      footer: 'This satirical content was created for a school project to highlight issues of immigrant dehumanisation.',
-    },
-
     // Common
     common: {
       at: 'at',
@@ -387,7 +316,6 @@ export const translations = {
       myApplications: 'Мої заявки',
       resources: 'Ресурси',
       learnEnglish: 'Вивчай англійську!',
-      sourceImmigrants: 'Замовити іммігрантів',
     },
 
     // Home page
@@ -679,76 +607,6 @@ export const translations = {
       },
       perMonth: '/місяць',
       lessons: 'уроків',
-    },
-
-    // Source Immigrants (Satirical)
-    sourceImmigrants: {
-      badge: 'ОБМЕЖЕНА ПРОПОЗИЦІЯ',
-      title1: 'Купи одного іммігранта',
-      title2: 'Отримай другого БЕЗКОШТОВНО!',
-      subtitle: 'Навіщо задовольнятися одним працьовитим, висококваліфікованим професіоналом, коли можна мати ДВОХ? Наш преміальний сервіс з підбору іммігрантів доставить вам найкращі таланти з усього світу!',
-      disclaimer: 'ЦЕ САТИРА - Ця сторінка є коментарем до того, як іммігрантів часто дегуманізують та ставляться до них як до товару. Іммігранти - це люди, а не продукти.',
-      orderNow: 'Замовити зараз*',
-      browseStock: 'Переглянути асортимент',
-      asterisk: '*Насправді не продається. Люди мають права.',
-      stats: {
-        countries: 'Країн походження',
-        languages: 'Мов',
-        degrees: 'Наукових ступенів',
-        willingness: 'Готовність працювати',
-      },
-      features: {
-        title: 'Чому замовляти у нас?',
-        premium: {
-          title: 'Преміум-клас людей',
-          desc: 'Лише найкращі екземпляри, попередньо відібрані для максимальної продуктивності та мінімуму скарг',
-        },
-        trained: {
-          title: 'Вже навчені',
-          desc: 'Вже трохи знає англійську! Збірка не потрібна. Батарейки (мотивація) включені.',
-        },
-        grateful: {
-          title: 'Надзвичайно вдячні',
-          desc: 'Погодяться на зарплату нижче ринкової з посмішкою! Ідеально для економних роботодавців.',
-        },
-        quiet: {
-          title: 'Не скаржаться',
-          desc: 'Занадто переживають за візовий статус, щоб просити підвищення, лікарняні чи базову гідність.',
-        },
-      },
-      packages: {
-        title: 'Оберіть пакет',
-        basic: {
-          name: 'Базовий іммігрант',
-          price: '999',
-          features: ['1 людина', 'Базова англійська', 'Працює у вихідні', 'Гарантія 90 днів'],
-        },
-        premium: {
-          name: 'Преміум іммігрант',
-          price: '1,999',
-          features: ['1 людина + 1 БЕЗКОШТОВНО', 'Вільна англійська', 'Кілька дипломів', 'Вічна вдячність'],
-          badge: 'НАЙКРАЩА ЦІНА',
-        },
-        enterprise: {
-          name: 'Корпоративний пакет',
-          price: '4,999',
-          features: ['5 людей', 'Різні навички', 'Оптова знижка', 'Безкоштовне страхування від депортації'],
-        },
-      },
-      testimonials: {
-        title: 'Відгуки наших клієнтів',
-        reviews: [
-          { name: 'Точно справжній CEO', text: 'Я замінив усю робочу силу на іммігрантів, і тепер моя яхта вдвічі більша!' },
-          { name: 'Зовсім не експлуататорська компанія', text: 'Навіщо платити мінімалку, коли можна менше? 5 зірок!' },
-          { name: 'Анонімний власник бізнесу', text: 'Вони працюють у свята, вихідні та ніколи не питають про понаднормові. Ідеально!' },
-        ],
-      },
-      realTalk: {
-        title: 'А якщо серйозно...',
-        message: 'Ця сторінка є сатирою, що висвітлює, як іммігрантів часто дегуманізують у публічному дискурсі. Справжні люди тікають від війни, переслідувань та бідності. Вони мають сім\'ї, мрії та гідність. Вони вносять мільярди в економіку та збагачують культури. Вони заслуговують на повагу, а не на те, щоб до них ставились як до товару.',
-        learnMore: 'Дізнатися про права іммігрантів',
-      },
-      footer: 'Цей сатиричний контент створено для шкільного проекту, щоб висвітлити проблеми дегуманізації іммігрантів.',
     },
 
     // Common

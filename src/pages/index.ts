@@ -11,4 +11,3 @@ export { QualificationsPage } from './QualificationsPage';
 export { ResourcesPage } from './ResourcesPage';
 export { DisclaimerPage } from './DisclaimerPage';
 export { LearnEnglishPage } from './LearnEnglishPage';
-export { SourceImmigrantsPage } from './SourceImmigrantsPage';

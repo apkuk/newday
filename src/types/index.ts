@@ -85,8 +85,7 @@ export type PageType =
   | 'interviewSuccess'
   | 'qualifications'
   | 'resources'
-  | 'learnEnglish'
-  | 'sourceImmigrants';
+  | 'learnEnglish';
 
 export interface Filters {
   sponsorship: boolean;
